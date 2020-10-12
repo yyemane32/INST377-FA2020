@@ -114,12 +114,6 @@ body {
     justify-content: space-between;
   }
 
-  .flex-outer {
-    margin-left: 0px;
-    margin-right: 0px;
-    justify-content: space-between;
-  }
-
   
 .flex-inner>li {
   width: 90px;

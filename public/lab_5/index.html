@@ -1,93 +1,86 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title> Yohana Yemane Lab 4 </title>
-    <link href = "styles.css" rel = "stylesheet">
-    <script src="scripts/main.js"></script>
+    <meta name='author' content='Yohana Yemane'>
+    <title>Yohana Yemane Lab 4</title>
+    <link href ="styles.css" rel = "stylesheet">
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-
-<body>
+  <body>
     <header>
-        <h1> Yohana Yemane's Lab 4 </h1>
+        <h1>Yohana Yemane's Lab 4</h1>
     </header>
-      <form action="/api" method="post">
-          <ul class = "flex-outer" flex="display">
-              <li>
-                  <label for="fname"> First Name </label>
-                  <input type="text" name="fname" id="fname" maxlength="140" placeholder="Enter your first name here">
-              </li>
 
-              <li>
-                <label for="lname"> Last Name </label>
-                <input type="text" name="lname" id="lname" maxlength="140" placeholder="Enter your last name here">
-              </li>
-
-              <li>
-                <label for="email">Email</label>
-                <input type="email" name="email"id="email" placeholder="Enter your email here">
-              </li>
-
-              <li>
-                <label for="phone">Phone</label>
-                <input type="tel" name="phone" id="phone" placeholder="Enter your phone here">
-              </li>
-
-              <li>
-                <label for="message">Message</label>
-                <textarea rows="6" cols="33" name = "message" id="message" placeholder="Enter your message here">
-                </textarea>
-              </li>
-
-              <li >
-                  <p >Fruits</p>
-                  <ul class="flex-inner" flex="display">
-
-                    <li>
-                        <input type="checkbox" name="Strawberry" id="Strawberry">
-                        <label for="Strawberry">Strawberry</label>
-                      </li>
-
-                      <li>
-                        <input type="checkbox" name="Banana" id="Banana">
-                        <label for="Banana">Banana</label>
-                      </li>
-
-                      <li>
-                        <input type="checkbox" name="Mango" id="Mango">
-                        <label for="Mango">Mango</label>
-                      </li>
-                    </ul>
-                </li>
-
-                      <li>
-                        <button type="submit" name="button" id="button" onclick="clickMe()">Submit Form</button>
-                      </li>
-                  
-                  </ul>
-          
+    <form action="/api" method="post">
+        <ul class="flex-outer">
+          <li>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name = 'fname' maxlength="140" placeholder="Enter your first name here">
+          </li>
+          <li>
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname"maxlength="140" placeholder="Enter your last name here">
+          </li>
+          <li>
+            <label for="email">Email</label>
+            <input type="email" id="email" name= "email" placeholder="Enter your email here">
+          </li>
+          <li>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone here">
+          </li>
+          <li>
+            <label for="message">Message</label>
+            <textarea rows="5" cols="33" name="message" id="message" placeholder="Enter your message here"></textarea>
+          </li>
+          <li>
+            <p>Fruits</p>
+            <ul class="flex-inner">
+                <li>
+                    <input type="checkbox" name = "age" id="eighteen-to-thirtyfive">
+                    <label for="eighteen-to-thirtyfive">18-35</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name = "age" id="thirtyfive-to-fifty">
+                    <label for="thirtyfive-to-fifty">35-50</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name = "age" id="fifty-to-sixtyfive">
+                    <label for="fifty-to-sixtyfive">50-65</label>
+                  </li>
+                  <!-- more list items here -->
+            </ul>
+          </li>
+          <li>
+            <button name = "button" id = "button" type="submit">Submit</button>
+            <button type="button" class="button" id="act_button" name="act_button" onclick="clickMe()">Activate</button>
+          </li>
+        </ul>
       </form>
-      
-
       <script>
-       function clickMe() {
-        const RolesHeader = document.querySelector("flex-outer");
-        content.innerHTML = "Lab 5 for Yohana Yemane";}
-
-        document.querySelector(".check-list-label").textContent("fruits")
-
-        function testFunction() {
-        fetch('/api')
-        .then((response) => response.text())
-        .then((response) => {
-              console.log(response);
-        })
-    }
-      </script>
-        
-</body>
+        function clickMe() {
+            fetch('/api')
+            .then((response) => response.text())
+            .then((response) => {
+                console.log(response);
+                document.querySelector("body").style.backgroundColor = "#3A9C8F";
+                const fruits = ['Apple','Banana','Mango'];
+                const checks = document.querySelectorAll('.flex-inner label')
+                console.log(checks.length, checks[0]);
+                checks.forEach(((check, i) => {
+                    console.log(check,i);
+                    check.innerText = fruits[i];
+                }))
+                document.querySelector("h1").innerText = response;
+                document.querySelector(".flex-outer").style.margin = "0 auto";
+                document.querySelector(".checkbox-list-label").textContent = "Fruits";
+            }); 
+        }
+   </script>
+  </body>
 </html>
-      
+
