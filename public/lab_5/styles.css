@@ -109,14 +109,6 @@ body {
     border-radius: 3px;
   }
 
-  .check-list-label{
-    margin-left: 0px;
-    margin-right: 10px;
-    padding: 6px 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    border-radius: 3px;
-  }
 
   .flex-inner {
     justify-content: space-between;
