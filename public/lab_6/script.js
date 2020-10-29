@@ -34,3 +34,4 @@ document.body.addEventListener('submit', async (e) => {
     })
     .catch((err) => console.log(err));
 });
+
